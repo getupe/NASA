@@ -1,0 +1,46 @@
+{
+  "home":{
+    "headerTitle": "网络攻击态势感知",
+    "leftTop": "%lastYear%年被攻击地区前10",
+    "leftBottom": "%lastYear%年攻击源前10",
+    "right": "%lastYear%年攻击事件回放",
+    "leftLP": "%lastYear%年被攻击地区前10",
+    "leftRP": "%lastYear%年攻击源前10"
+  },
+  "world": {
+    "headerTitle": "网络攻击态势感知",
+    "leftTop": "%lastYear%年控制我国境内主机数量前10",
+    "rightTop": "%lastYear%保密监管数据",
+    "rightSubTop": "网络窃密攻击",
+    "rightSubMed": "攻击重点行业",
+    "rightSubBot": "高级别持续定向攻击",
+    "leftP": "%lastYear%年控制我国境内主机数量前10",
+    "rightP": "%lastYear%保密监管数据",
+    "rightLP": "网络窃密攻击",
+    "rightMP": "攻击重点行业",
+    "rightRP": "高级别持续定向攻击"
+  },
+  "china": {
+    "headerTitle": "网络攻击态势感知",
+    "leftTop": "%lastYear%年病毒类型统计",
+    "leftMedium": "%lastYear%年APT攻击行业占比分析",
+    "leftBottom": "%lastYear%年被控网络主机分布前10",
+    "rightTop": "%lastYear%年受控僵尸主机数量变化趋势",
+    "rightMedium": "%lastYear%年分布式拒绝服务攻击变化趋势",
+    "rightBottom": "%lastYear%年Web应用攻击变化趋势",
+    "leftTopP": "%lastYear%年被控主机分布",
+    "leftMediumP": "%lastYear%年病毒类型统计",
+    "leftBottomP": "%lastYear%年APT攻击行业占比分析",
+    "rightTopP": "%lastYear%年受控僵尸主机数量变化趋势",
+    "rightMediumP": "%lastYear%年分布式拒绝服务攻击变化趋势",
+    "rightBottomP": "%lastYear%年Web应用攻击变化趋势"
+  },
+  "province": {
+    "headerTitle": "网络攻击态势感知",  
+    "leftTop": "%lastYear%年贵州市遭受网络攻击总数",
+    "leftBottom": "%lastYear%年贵州市被植入木马主机数",
+    "center": "%lastYear%年贵州市被植入后门网站数量",
+    "rightTop": "%lastYear%年贵州市被篡改网站数量",
+    "rightBottom": "%lastYear%年贵州市涉及DDOS攻击主机数量"
+  }
+}

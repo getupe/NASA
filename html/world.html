@@ -1,0 +1,1311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网络攻击态势展示</title>
+	<script src="../lib/jquery-3.3.1.js"></script>
+	<script src="../lib/echarts.js"></script>
+	<script src="../js/registerMap/world.js"></script>
+	<link href="../style/css/world.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="bg">
+    <header class="header">
+        <div class="divTitle" >
+            <p style="margin: 6px" id="headerTitle"></p>
+        </div>
+        <div id="systemTime"></div>
+    </header>
+    <div class="fh1">
+        <span style="margin-left: 5px" id= "jumpBackBtn">
+            <label onclick="jumpBack()" style="cursor: pointer">全球</label>
+        </span>
+        <div style="display: initial" id="mbx"></div>
+    </div> 
+    <div class="mainbody">
+        <div class="typeBox">
+           <div class="lfbox">
+                <img src="../style/images/attack/attackhm.png">
+                <div class="lfbg">
+                    <div class="text">网站后门</div>
+                </div>
+           </div>
+           <div class="lfbox">
+                <img src="../style/images/attack/attackey.png">
+                <div class="lfbg">
+                    <div class="text">恶意程序</div>					
+                </div>
+           </div>
+           <div class="lfbox">
+                <img src="../style/images/attack/attackld.png">
+                <div class="lfbg">
+                    <div class="text">漏洞攻击</div>					
+                </div>
+           </div>
+           <div class="lfbox">
+                <img src="../style/images/attack/attackmm.png">
+                <div class="lfbg">
+                    <div class="text">木马攻击</div>					
+                </div>
+           </div>
+        </div>
+		<div class="leftBox">
+            <div class="right" id="attackBox">
+                <div class="rt-T lastYear" id="jnzj"></div>
+                <div class="rt-Bot" >
+                    <div class="title">
+                        <div class="each">国家或地区</div>
+                        <div class="each">数量(万台)</div>
+                    </div>
+                    <div class="tabBody" style="overflow-y: hidden;" >
+                        <div class="content">
+                            <div class="cTBody" id='secLeft'></div>
+                        </div>
+                    </div>
+                    <p class="T-SMtitle lastYear">（数据来源：国家互联网应急中心%lastYear%互联网网络安全报告）</p>
+                </div>
+            </div>
+        </div>
+  
+		<div class="center">
+            <div id="cnterEchars11"  class="Centertopshow"  style="width: 100%;height: 662px;"></div>
+			<div class="centerBottom">
+				<div class="listT">
+					<ul>
+						<li class="Atype">攻击类型</li>
+						<li class="Asource">攻击源</li>
+						<li class="Aarea" >被攻击地区</li>
+						<li class="Atime">攻击时间</li>
+					</ul>
+				</div>
+				<div class="prize-databox" id="prize-databox">
+					<ul id = 'prizeUl'></ul>
+				</div>	
+			</div>
+        </div>
+        <div class="rightBox" id="RAttack">
+            <div class="rBTitle lastYear" id="bmjgsj"></div>
+            <div class="top item">
+                <div class="title" id="wlqmgjT"></div>
+                <div class="chart"  id='qmgj'></div>
+            </div>
+            <div class="middle item">
+                <div class="title" id="gjzdhyT"></div>
+                <div class="chart"  id='gjzdhy'></div>  
+            </div>
+            <div class="bottom item">
+                <div class="title titleLarge" id="gjbgjT"></div>
+                <div class="chart"  id='dxgj'></div>
+            </div>
+        </div>
+        <div id = 'controllTop10' style="display:none;">
+            <div class="panel">
+                <div class="closeBtn"></div>
+                <div class="content">
+                    <div class="right" id="leftBox">
+                        <div class="rt-T lastYear" id="zjslP"></div>
+                        <div class="rt-Bot" >
+                            <div class="boxContent">
+                                <div class="boxTitle">
+                                    <div class="each">国家或地区</div>
+                                    <div class="each">数量(万台)</div>
+                                </div>
+                                <div class="boxBody" style="overflow-y: hidden;" >
+                                    <div class="content">
+                                        <div class="cTBodyNew" id='secLeftP'></div>
+                                    </div>
+                                </div>
+                                <p class="T-SMtitle lastYear">（数据来源：国家互联网应急中心%lastYear%互联网网络安全报告）</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id = 'JGChart' style="display: none;">
+            <div class="panel">
+                <div class="closeBtn"></div>
+                <div class="content">
+                    <header class="lastYear" id="bmjgsjP"></header>
+                    <div class="NewrightBox" id="RAttack">
+                        <div class="rtop item">
+                            <div class="Newtitle" id="wlqmP"></div>
+                            <div class="Newchart"  id='Rightqmgj' ></div>
+                        </div>
+                        <div class="rmiddle item">
+                            <div class="Newtitle" id="gjzdhyP"></div>
+                            <div class="Newchart"  id='Rightgjzdhy' ></div>  
+                        </div>
+                        <div class="rottom item">
+                            <div class="Newtitle titleLarge" id="gjbgjP"></div>
+                            <div class="Newchart"  id='Rightdxgj' ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+<script>
+    function jumpBack() {
+        window.location.href = '../index.html';
+    }
+	// 无缝滚动
+    function scrollNews (obj) {
+        var $self = obj.find("ul:first");
+        var lineHeight = $self.find("li:first").height();
+        $self.animate({ "margin-top": -lineHeight + "px" }, 1500, "linear", function () {
+            $self.css({ "margin-top": "0px" }).find("li:first").appendTo($self);
+        })
+    }
+    $(function () {
+        // scroll
+        var $this = $("#prize-databox"), scrollTimer;
+        $this.hover(function () {
+            clearInterval(scrollTimer);
+        }, function () {
+            scrollTimer = setInterval(function () {
+                scrollNews($this);  
+            }, 1500);     
+        }).trigger("mouseout");
+        // 右上角时间
+        setInterval(function() {
+            showTime();
+        }, 1000); 
+        getTitle();
+        getChartData();
+        drawChart();
+        const lastYear = new Date().getFullYear() - 1;
+        const htm = $('.lastYear');
+        for(let i=0;i<htm.length;i++) {
+            const itemText = htm[i]['innerHTML'].replace('%lastYear%',lastYear);
+            htm[i]['innerHTML'] = itemText;
+        }
+        getJsonData();
+    });
+    function getTitle() {
+        $.ajax({
+            url: "../data/titleConfig.json",
+            type:"get",
+            dataType:"json",
+            success:function(data){
+                const config = data.world;
+                const lastYear = new Date().getFullYear() - 1;
+
+                $('#headerTitle')[0].innerHTML = config.headerTitle;
+                
+                $('#jnzj')[0].innerHTML = config.leftTop.replace('%lastYear%',lastYear);
+                $('#bmjgsj')[0].innerHTML = config.rightTop.replace('%lastYear%',lastYear);
+
+                $('#wlqmgjT')[0].innerHTML = config.rightSubTop;
+                $('#gjzdhyT')[0].innerHTML = config.rightSubMed;
+                $('#gjbgjT')[0].innerHTML = config.rightSubBot;
+
+                $('#zjslP')[0].innerHTML = config.leftP.replace('%lastYear%',lastYear);
+
+                $('#bmjgsjP')[0].innerHTML = config.rightP.replace('%lastYear%',lastYear);
+                
+                $('#wlqmP')[0].innerHTML = config.rightLP;
+                $('#gjzdhyP')[0].innerHTML = config.rightMP;
+                $('#gjbgjP')[0].innerHTML = config.rightRP;
+            }
+        });
+    }
+    function getJsonData() {
+        $.ajax({
+        url: "../data/jsonData.json",
+        type: "get",
+        dataType: "json",
+        success: function (data) {
+            const imgUrl = {
+            '中国': 'China',
+            '德国': 'Germany',
+            '俄罗斯': 'Russia',
+            '加拿大': 'Canada',
+            '日本': 'Japan',
+            '澳大利亚': 'Australia',
+            '伊朗': 'Iran',
+            '以色列': 'Israel',
+            '英国': 'England',
+            '乌克兰': 'Ukraine',
+            '美国': 'America',
+            }
+            const secLeft = document.getElementById('secLeft');
+            const secLeftP = document.getElementById('secLeftP');
+
+            loadSecLeft(data.secLeft, secLeft, imgUrl);
+            loadSecLeft(data.secLeft, secLeftP, imgUrl);               
+        }
+        });     
+    }
+    function loadSecLeft(data, element, imgUrl) {
+        let attactedHTML = '';
+        
+        for(let i=0;i<data.length;i++) {
+        const {name, value} = data[i];
+        attactedHTML += `
+            <div class="row">
+                <div class="left">
+                    <div class="imgBox" title=${name}>
+                        <img src="../style/images/country/${imgUrl[name]}.png">
+                        <div class="countryName">${name}</div>
+                    </div>        
+                </div>
+                <div class="right">${value}</div>
+            </div>
+        `;
+        }
+        element.innerHTML = attactedHTML;
+    }
+    function drawChart() {
+        drawQqmgj();
+        drawGjzdhy();
+        drawDxgj();
+    }
+    function RightdrawChart() {
+        RightdrawQqmgjqmgjNew();
+        RightdrawGjzdhy();
+        RightdrawDxgj();
+    }
+    function drawQqmgj() {
+        let qmgjChart = echarts.init(document.getElementById('qmgj'));
+        const lastYear = new Date().getFullYear() - 1;
+        let option = {
+                color: ['#4691fb'],
+                grid: {
+                    top: '17%',
+                    left: '5%',
+                    right: '5%',
+                    bottom: '7%',
+                    containLabel: true,
+                },
+                xAxis: [{
+                    type: 'category',
+                    data: [lastYear-1, lastYear],
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: "#ffffff22",
+                            width: 2,
+                            type: "solid"
+                        }
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: true,
+                        interval:0,
+                        fontSize: '13',
+                        textStyle: {
+                            color: "#fff",
+                        }
+                    },
+                }],
+                yAxis: [{
+                    type: 'value',
+                    name: '单位:万台',
+                    nameTextStyle: {
+                        color: '#ffffff'
+                    },
+                    axisLabel: {
+                        formatter: '{value} ',
+                        fontSize: '13',
+                        textStyle: {
+                            color: "#fff",
+                        }
+                    },
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: "#ffffff22",
+                            width: 2,
+                            type: "solid"
+                        },
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            type: 'solid',
+                            color: '#032947'
+                        }
+                    },
+                }],
+                series: [{
+                    type: 'bar',
+                    data: [ 3.4, 4.9],
+                    barWidth: 16,
+                    barGap: 0, 
+                    "label": {
+                        "normal": {
+                            "show": true,
+                            "position": "top",
+                            "formatter": "{c}",
+                            color: '#6af3ff'
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0,1,0,0,[{
+                                offset: 0,
+                                color: '#009dff00'
+                            },{
+                                offset: 1,
+                                color: '#009dff'
+                            }])
+                        }
+                    }
+                }]
+            };
+        qmgjChart.setOption(option);
+    }
+    function drawQqmgjqmgjNew() {
+        let qmgjChart = echarts.init(document.getElementById('qmgj'));
+        const lastYear = new Date().getFullYear() - 1;
+        let option = {
+                color: ['#4691fb'],
+                grid: {
+                    top: '17%',
+                    left: '5%',
+                    right: '5%',
+                    bottom: '7%',
+                    containLabel: true,
+                },
+                xAxis: [{
+                    type: 'category',
+                    data: [lastYear-1, lastYear],
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: "#ffffff22",
+                            width: 2,
+                            type: "solid"
+                        }
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: true,
+                        interval:0,
+                        fontSize: '13',
+                        textStyle: {
+                            color: "#fff",
+                        }
+                    },
+                }],
+                yAxis: [{
+                    type: 'value',
+                    name: '单位:万台',
+                    nameTextStyle: {
+                        color: '#ffffff'
+                    },
+                    axisLabel: {
+                        formatter: '{value} ',
+                        fontSize: '13',
+                        textStyle: {
+                            color: "#fff",
+                        }
+                    },
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: "#ffffff22",
+                            width: 2,
+                            type: "solid"
+                        },
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            type: 'solid',
+                            color: '#032947'
+                        }
+                    },
+                }],
+                series: [{
+                    type: 'bar',
+                    data: [ 3.4, 4.9],
+                    barWidth: 16, 
+                    barGap: 0, 
+                    "label": {
+                        "normal": {
+                            "show": true,
+                            "position": "top",
+                            "formatter": "{c}",
+                            color: '#6af3ff'
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0,1,0,0,[{
+                                offset: 0,
+                                color: '#009dff00'
+                            },{
+                                offset: 1,
+                                color: '#009dff'
+                            }])
+                        }
+                    }
+                }]
+            };
+        qmgjChart.setOption(option);
+    }
+   
+    function drawGjzdhy() {
+        let gjzdhyChart = echarts.init(document.getElementById('gjzdhy'));
+        let option = {
+            color: ["#cc5656", '#9b36d0', '#e8c87b','#30a1dc' ,'#d69f51','#4d6bfd'],
+            series : [
+                {
+                    name: '',
+                    type: 'pie',
+                    radius : ['50%', '75%'],
+                    center: ['50%', '50%'],
+                    data: [
+                        {value: 15, name: '外交'},
+                        {value: 12, name: '金融'},
+                        {value: 20, name: '国有企业'},
+                        {value: 28, name: '武器装备生产企业'},
+                        {value: 20, name: '外贸'},
+                        {value: 6, name: '其他'},
+                    ],
+                    label: {
+                        color: '#fff'
+                    },
+                }
+            ]
+        };
+        gjzdhyChart.setOption(option);
+    }
+    
+    function drawDxgj() {
+        let dxgjChart = echarts.init(document.getElementById('dxgj'));
+        const lastYear = new Date().getFullYear() - 1;
+        let option = {
+                color: ['#4691fb'],
+                grid: {
+                    top: '17%',
+                    left: '5%',
+                    right: '20%',
+                    bottom: '7%',
+                    containLabel: true,
+                },
+                yAxis: [{
+                    type: 'category',
+                    data: [lastYear-1, lastYear],
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: "#ffffff22",
+                            width: 2,
+                            type: "solid"
+                        }
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: true,
+                        interval:0,
+                        fontSize: '13',
+                        textStyle: {
+                            color: "#fff",
+                        }
+                    },
+                }],
+                xAxis: [{
+                    type: 'value',
+                    name: '单位:次',
+                    nameTextStyle: {
+                        color: '#fff'
+                    },
+                    nameLocation: 'end',
+                    position: 'top',
+                    axisLabel: {
+                        show: true,
+                        formatter: '{value} ',
+                        fontSize: '13',
+                        textStyle: {
+                            color: "#fff",
+                        }
+                    },
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: "#ffffff22",
+                            width: 2,
+                            type: "solid"
+                        },
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            type: 'solid',
+                            color: '#032947'
+                        }
+                    },
+                }],
+                series: [{
+                    type: 'bar',
+                    data: [1030, 2070],
+
+                    barWidth: 20, 
+                    barGap: 0, 
+                    "label": {
+                        "normal": {
+                            "show": true,
+                            "position": "right",
+                            "formatter": "{c}",
+                            color: '#6af3ff'
+                        }
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: new echarts.graphic.LinearGradient(0,0,1,0,[{
+                                offset: 0,
+                                color: '#009dff00'
+                            },{
+                                offset: 1,
+                                color: '#009dff'
+                            }])
+                        }
+                    }
+
+                }]
+            };  
+        dxgjChart.setOption(option);
+    }
+
+    function RightdrawQqmgjqmgjNew() {
+        let RightqmgjChart = echarts.init(document.getElementById('Rightqmgj'));
+        const lastYear = new Date().getFullYear() - 1;
+        let option = {
+                color: ['#4691fb'],
+                grid: {
+                    top: '17%',
+                    left: '5%',
+                    right: '5%',
+                    bottom: '7%',
+                    containLabel: true,
+                },
+                xAxis: [{
+                    type: 'category',
+                    data: [lastYear-1, lastYear],
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: "#ffffff22",
+                            width: 2,
+                            type: "solid"
+                        }
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: true,
+                        interval:0,
+                        fontSize: '16',
+                        textStyle: {
+                            color: "#fff",
+                        }
+                    },
+                }],
+                yAxis: [{
+                    type: 'value',
+                    name: '单位:万台',
+                    nameTextStyle: {
+                        color: '#ffffff'
+                    },
+                    axisLabel: {
+                        formatter: '{value} ',
+                        fontSize: '16',
+                        textStyle: {
+                            color: "#fff",
+                        }
+                    },
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: "#ffffff22",
+                            width: 2,
+                            type: "solid"
+                        },
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            type: 'solid',
+                            color: '#032947'
+                        }
+                    },
+                }],
+                series: [{
+                    type: 'bar',
+                    data: [ 3.4, 4.9],
+                    barWidth: 28, 
+                    barGap: 0, 
+                    "label": {
+                        "normal": {
+                            "show": true,
+                            "position": "top",
+                            "formatter": "{c}",
+                            color: '#6af3ff'
+                        }
+                    },
+                    itemStyle: {
+                        color: '#00ffff',
+                    }
+                }]
+            };
+            RightqmgjChart.setOption(option);
+    }
+      
+       function RightdrawGjzdhy() {
+        let RightgjzdhyChart = echarts.init(document.getElementById('Rightgjzdhy'));
+        let option = {
+            color: ["#cc5656", '#9b36d0', '#e8c87b','#30a1dc' ,'#d69f51','#4d6bfd'],
+            series : [
+                {
+                    name: '',
+                    type: 'pie',
+                    radius : ['50%', '75%'],
+                    center: ['50%', '50%'],
+                    data: [
+                        {value: 15, name: '外交'},
+                        {value: 12, name: '金融'},
+                        {value: 20, name: '国有企业'},
+                        {value: 28, name: '武器装备生产企业'},
+                        {value: 20, name: '外贸'},
+                        {value: 6, name: '其他'},
+                    ],
+                    label: {
+                        color: '#fff'
+                    },
+                }
+            ]
+        };
+        RightgjzdhyChart.setOption(option);
+    }
+    
+    function RightdrawDxgj() {
+        let RightdxgjChart = echarts.init(document.getElementById('Rightdxgj'));
+        const lastYear = new Date().getFullYear() - 1;
+        let option = {
+                color: ['#4691fb'],
+                grid: {
+                    top: '17%',
+                    left: '5%',
+                    right: '20%',
+                    bottom: '7%',
+                    containLabel: true,
+                },
+                yAxis: [{
+                    type: 'category',
+                    data: [lastYear-1, lastYear],
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: "#ffffff22",
+                            width: 2,
+                            type: "solid"
+                        }
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    axisLabel: {
+                        show: true,
+                        interval:0,
+                        fontSize: '16',
+                        textStyle: {
+                            color: "#fff",
+                        }
+                    },
+                }],
+                xAxis: [{
+                    type: 'value',
+                    name: '单位:次',
+                    nameTextStyle: {
+                        color: '#fff'
+                    },
+                    nameLocation: 'end',
+                    position: 'top',
+                    axisLabel: {
+                        show: true,
+                        formatter: '{value} ',
+                        fontSize: '16',
+                        textStyle: {
+                            color: "#fff",
+                        }
+                    },
+                    axisLine: {
+                        show: true,
+                        lineStyle: {
+                            color: "#ffffff22",
+                            width: 2,
+                            type: "solid"
+                        },
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            type: 'solid',
+                            color: '#032947'
+                        }
+                    },
+                }],
+                series: [{
+                    type: 'bar',
+                    data: [1030, 2070],
+
+                    barWidth: 28,
+                    barGap: 0, 
+                    "label": {
+                        "normal": {
+                            "show": true,
+                            "position": "right",
+                            "formatter": "{c}",
+                            color: '#6af3ff'
+                        }
+                    },
+                    itemStyle: {
+                        color: '#00ffff'
+                    }
+
+                }]
+            };  
+            RightdxgjChart.setOption(option);
+    }
+   
+    // 
+    function showTime() {
+        let time = new Date();
+        let year = time.getFullYear();
+        let month = time.getMonth() + 1;
+        let date = time.getDate();
+        let hour = add0(time.getHours());
+        let minute = add0(time.getMinutes())
+        let second = add0(time.getSeconds());    
+
+        function add0(num) {
+            if(num < 10) {
+                return `0${num}`;
+            }
+            return num.toString();
+        }
+        let timeText = `${year}年${month}月${date}日   ${hour}:${minute}:${second}`;
+        $('#systemTime').text(timeText);
+    }
+    var attackInfo = [];
+    function getChartData() {
+        $.ajax({
+                        url: "/api/load-china-data",
+                        type: "get",
+                        dataType: "json",
+                        success: function (data) {
+                            // if() {
+                                // debugger
+                                // window.open('html/noAuth.html');
+                                // return false;                            
+                            // }
+                            attackInfo = data.attackInfo;
+                            var attackHtml = '';
+                            var iconTypeMap = {
+                                '漏洞攻击': 'attackld',
+                                '木马攻击': 'attackmm',
+                                '恶意程序': 'attackey',
+                                '网站后门': 'attackhm'
+                            };
+                            var conTypeMap =  {
+                                '希腊': 'GR',
+                                '匈牙利': 'HU',
+                                '波兰': 'PT',
+                                '奥地利': 'AT',
+                                '加拿大': 'CA',
+                                '德国': 'DE',
+                                '丹麦': 'DK',
+                                '以色列': 'IL',
+                                '俄罗斯': 'RU',
+                                '乌克兰': 'UA',
+                                '意大利': 'IT',
+                                '墨西哥': 'MX',
+                                '印度': 'IN',
+                                '挪威': 'NO',
+                                '西班牙': 'ES',
+                                '捷克': 'CZ',
+                                '法国': 'FR',
+                                '瑞典': 'SE',
+                                '芬兰': 'FI',
+                                '瑞士': 'CH',
+                                '比利时': 'BE',
+                                '英国': 'GB',
+                                '葡萄牙': 'PT',
+                                '美国': 'US',
+                                '古巴': 'CU',
+                                '巴西': 'BR',
+                                '埃及': 'EG',
+                                '澳大利亚': 'AU',
+                                '荷兰': 'NL',
+                                '卢森堡': 'LU',
+                                '爱尔兰': 'IE',
+                                '冰岛': 'IS',
+                                '日本': 'JP'
+                            };
+
+                            for(var p=0;p<attackInfo.length;p++) {
+                                let {attackType, source, target, attackTime} = attackInfo[p];
+                                attackHtml += "<li>" +
+                                    "<span><img class = 'attackIcon' src='../style/images/attack/" + iconTypeMap[attackType] + ".png'>" + attackType + "</span>" +
+                                    "<span class = 'secCol'><img class = 'countryIcon' src='../style/images/country/" + conTypeMap[source] + ".svg'>" + source + "</span>" +
+                                    "<span><img src='../style/images/country/China.png' style='width: 30px;height: 21px;margin-right: 12px;'>中国</span>" +
+                                    "<span>" + attackTime + "</span>"
+                                "</li>";
+                            }
+                            document.getElementById('prizeUl').innerHTML = attackHtml;
+                        }
+                    })
+    }
+        
+    drwareas(); 
+    function drwareas() {
+            $('#cnterEcharsC1').replaceWith('<div id="cnterEcharsC1"  class=" topshow"> </div>')
+            $('#cnterEcharsC1').hide();
+            $('#cnterEchars11').show();       
+            myChart2 = echarts.init(document.getElementById('cnterEchars11'));
+            $.ajax({
+                url: "/api/load-china-data",
+                type:"get",
+                dataType:"json",
+                success:function(data){
+                    worldMapRefresh(data.attackInfo);
+                    myChart2.on('click', function (params) {
+                        if(params.name=="China"){
+                        window.location.href='china.html'
+                        }
+                    })
+                }
+            })
+    }
+
+    // 地图刷新
+    function worldMapRefresh(attackInfo) {
+        let lineSData = [];
+        let index = 0;
+        for(let i=0;i<attackInfo.length;i++) {
+            const {target, targetLongitude, targetLatitude, typeColor, attackType, sourceLatitude, sourceLongitude, source} = attackInfo[i];
+            lineSData.push({
+                type: attackType,
+                data: {
+                    name: target,
+                    source,
+                    coords: [[sourceLongitude, sourceLatitude], [targetLongitude, targetLatitude]],
+                    typeColor
+                }
+            });
+        }
+        var waitSec = 10, lineDataAdd = [];
+        let bDoors = [], mProms = [], vAttacks = [], hAttacks = [], eScatter = [], oData = [];
+            
+                const {type, data} = lineSData[0];
+                if(type === '网站后门') {
+                    bDoors.push(data);
+                }else if(type === '恶意程序') {
+                    mProms.push(data);
+                }else if(type === '漏洞攻击') {
+                    vAttacks.push(data);
+                }else if(type === '木马攻击') {
+                    hAttacks.push(data);
+                }
+                eScatter.push({
+                    name: data['name'],
+                    value: data['coords'][1],
+                    itemStyle:{
+                        color: data['typeColor']
+                    }
+                });
+                oData.push({
+                    name: data['source'],
+                    value: data['coords'][0],
+                    itemStyle:{
+                        color: data['typeColor']
+                    }
+                });    
+            index ++;
+            getcenechars(bDoors, mProms, vAttacks, hAttacks, eScatter, oData);
+
+        setInterval(function() {
+            if (index === lineSData.length){
+                index = 0;
+            }
+            lineDataAdd.push(lineSData[index]);
+            let lineSDataShow = lineDataAdd.slice(-10);
+            let backDoors = [], maliProms = [], vulAttacks = [], horseAttacks = [], effectScatter = [], originData = [];
+            for(let i=0;i<lineSDataShow.length;i++) {
+                const {type, data} = lineSDataShow[i];
+                if(type === '网站后门') {
+                    backDoors.push(data);
+                }else if(type === '恶意程序') {
+                    maliProms.push(data);
+                }else if(type === '漏洞攻击') {
+                    vulAttacks.push(data);
+                }else if(type === '木马攻击') {
+                    horseAttacks.push(data);
+                }
+                effectScatter.push({
+                    name: data['name'],
+                    value: data['coords'][1],
+                    itemStyle:{
+                        color: data['typeColor']
+                    }
+                });
+                originData.push({
+                    name: data['source'],
+                    value: data['coords'][0],
+                    itemStyle:{
+                        color: data['typeColor']
+                    }
+                });
+            }       
+            index ++;
+            getcenechars(backDoors, maliProms, vulAttacks, horseAttacks, effectScatter, originData);
+        }, 1500);
+    }
+
+    // 世界地图 中国被攻击态势
+    function getcenechars(backDoors, maliProms, vulAttacks, horseAttacks, effectScatter, originData) {
+        let option = {
+            grid: {
+                top: '0%',
+                left: '0%',
+                right: '0%',
+                bottom: '0%'
+            },
+            geo:{
+                map: "world",
+                zoom: 1.2,
+                label: {
+                    emphasis: {
+                        show: false
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        areaColor: '#264CAC',
+                        borderColor: '#6FB2EF'
+                        // areaColor: '#323c48',
+                        // borderColor: '#404a59'
+                    }
+                },
+                // 中国light
+                regions: [{
+                    zoom: 2,
+                    name: 'China',
+                    itemStyle: {
+                        normal: {
+                            borderColor: '#0066ff',
+                            borderWidth: 1,
+                            areaColor: {
+                                            type: 'linear',
+                                            x: 0,
+                                            y: 0,
+                                            x2: 0,
+                                            y2: 1,
+                                            colorStops: [{
+                                                offset: 0,
+                                                color: '#87CEFA' // 0% 处的颜色
+                                            }, {
+                                                offset: 1,
+                                                color: '#07ffff' // 100% 处的颜色
+                                            }],
+                                            globalCoord: false // 缺省为 false
+                            },
+                                        shadowColor: 'rgba(128, 217, 248, 1)',
+                                        shadowOffsetX: 0,
+                                        shadowOffsetY: 0,
+                                        shadowBlur: 10
+                        },
+                        emphasis: {
+                            areaColor: '#389BB7',
+                            borderWidth: 0
+                        }
+                    }			 
+                }]
+            },
+            series: [
+                {
+                name: "网站后门",
+                type: "lines",
+                zlevel: 2,
+                effect: {
+                    show: true,
+                    period: 1.5,
+                    trailLength: 0.7, //特效尾迹长度[0,1]值越大，尾迹越长重
+                    symbolSize: 3, //图标大小
+                    color: "#ffa500"
+                },
+                lineStyle: {
+                    normal: {
+                        width: 0, //尾迹线条宽度
+                        curveness: 0.2, //尾迹线条曲直度
+                    }
+                },
+                data: backDoors
+            },{
+                name: "网站后门",
+                type: "lines",
+                zlevel: 3,
+                symbol:['none', "arrow"], //箭头图标
+                symbolSize: 10, //图标大小
+                effect: {
+                    show: true,
+                    period: 1.5,
+                    trailLength: 0, //特效尾迹长度[0,1]值越大，尾迹越长重
+                    symbol:'arrow', //箭头图标
+                    symbolSize: 10, //图标大小
+                },
+                lineStyle: {
+                    normal: {
+                        width: 0, //尾迹线条宽度
+                        opacity: 0.6, //尾迹线条透明度
+                        curveness: .2, //尾迹线条曲直度
+                        color: "#ffa500"
+                    }
+                },
+                data: backDoors
+            },{
+                name: "恶意程序",
+                type: "lines",
+                zlevel: 2,
+                effect: {
+                    show: true,
+                    period: 1.5,
+                    trailLength: 0.7, //特效尾迹长度[0,1]值越大，尾迹越长重
+                    symbolSize: 3, //图标大小
+                    color: "#ff0000"
+                },
+                lineStyle: {
+                    normal: {
+                        width: 0, //尾迹线条宽度
+                        curveness: 0.2, //尾迹线条曲直度
+                    }
+                },
+                data: maliProms
+            },{
+                name: "恶意程序",
+                type: "lines",
+                zlevel: 3,
+                symbol:['none', "arrow"], //箭头图标
+                symbolSize: 10, //图标大小
+                effect: {
+                    show: true,
+                    period: 1.5,
+                    trailLength: 0, //特效尾迹长度[0,1]值越大，尾迹越长重
+                    symbol:'arrow', //箭头图标
+                    symbolSize: 10, //图标大小
+                },
+                lineStyle: {
+                    normal: {
+                        width: 0, //尾迹线条宽度
+                        opacity: 0.6, //尾迹线条透明度
+                        curveness: .2, //尾迹线条曲直度
+                        color: "#ff0000"
+                    }
+                },
+                data: maliProms
+            },{
+                name: "漏洞攻击",
+                type: "lines",
+                zlevel: 2,
+                effect: {
+                    show: true,
+                    period: 1.5,
+                    trailLength: 0.7, //特效尾迹长度[0,1]值越大，尾迹越长重
+                    symbolSize: 3, //图标大小
+                    color: "#ffff00"
+                },
+                lineStyle: {
+                    normal: {
+                        width: 0, //尾迹线条宽度
+                        curveness: 0.2, //尾迹线条曲直度
+                    }
+                },
+                data: vulAttacks
+            },{
+                name: "漏洞攻击",
+                type: "lines",
+                zlevel: 3,
+                symbol:['none', "arrow"], //箭头图标
+                symbolSize: 10, //图标大小
+                effect: {
+                    show: true,
+                    period: 1.5,
+                    trailLength: 0, //特效尾迹长度[0,1]值越大，尾迹越长重
+                    symbol:'arrow', //箭头图标
+                    symbolSize: 10, //图标大小
+                },
+                lineStyle: {
+                    normal: {
+                        width: 0, //尾迹线条宽度
+                        opacity: 0.6, //尾迹线条透明度
+                        curveness: .2, //尾迹线条曲直度
+                        color: "#ffff00"
+                    }
+                },
+                data: vulAttacks
+            },{
+                name: "木马攻击",
+                type: "lines",
+                zlevel: 2,
+                effect: {
+                    show: true,
+                    period: 1.5,
+                    trailLength: 0.7, //特效尾迹长度[0,1]值越大，尾迹越长重
+                    symbolSize: 3, //图标大小
+                    color: "#ff00f7"
+                },
+                lineStyle: {
+                    normal: {
+                        width: 0, //尾迹线条宽度
+                        curveness: 0.2, //尾迹线条曲直度
+                    }
+                },
+                data: horseAttacks
+            },{
+                name: "木马攻击",
+                type: "lines",
+                zlevel: 3,
+                symbol:['none', "arrow"], //箭头图标
+                symbolSize: 10, //图标大小
+                effect: {
+                    show: true,
+                    period: 1.5,
+                    trailLength: 0, //特效尾迹长度[0,1]值越大，尾迹越长重
+                    symbol:'arrow', //箭头图标
+                    symbolSize: 10, //图标大小
+                },
+                lineStyle: {
+                    normal: {
+                        width: 0, //尾迹线条宽度
+                        opacity: 0.6, //尾迹线条透明度
+                        curveness: .2, //尾迹线条曲直度
+                        color: "#ff00f7"
+                    }
+                },
+                data: horseAttacks
+            },{
+                                type: "effectScatter",
+                                coordinateSystem: "geo",
+                                zlevel: 2,
+                                label: {
+                                    normal: {
+                                        show: true,
+                                        position: "bottom", //显示位置
+                                        fontWeight: "lighter",
+                                        fontSize: 13,
+                                        formatter: "{b}" //圆环显示文字
+                                    },
+                                    emphasis: {
+                                        show: true
+                                    },
+                                },
+                                symbolSize: 0.1, //圆环大小
+                                data: effectScatter
+            },{
+                type: "effectScatter",
+                coordinateSystem: "geo",
+                rippleEffect: {
+                    period: 2,
+                    brushType: "stroke",
+                    scale: 5
+                },label: {
+                    normal: {
+                        show: true,
+                        position: "bottom", //显示位置
+                                        fontWeight: "lighter",
+                                        fontSize: 13,
+                                        formatter: "{b}" //圆环显示文字
+                                    },
+                                    emphasis: {
+                                        show: true
+                                    },
+                                },
+                data: originData
+            }, {// 天津
+                type: "scatter",
+                coordinateSystem: "geo",
+                zlevel: 2,
+                itemStyle: {
+                    color: "red"
+                },
+                label: {
+                    show: true,
+                    position: 'right',
+                    formatter: '{b}'
+                },
+                symbol: "circle",
+                symbolSize: 10,
+                data: [{
+                    name: '天津',
+                    value: ['117.20', '39.13']
+                }]
+            },{// 北京
+                type: "scatter",
+                coordinateSystem: "geo",
+                zlevel: 2,
+                rippleEffect: {
+                    period: 4,
+                    brushType: "stroke",
+                    scale: 4
+                },
+                label: {
+                    show: false
+                },
+                symbol: "path://M1035.690747 460.197628l-201.082549 198.208997 47.496174 280.220819c6.837071 39.602164-19.388216 77.288628-58.527969 84.224787a71.244261 71.244261 0 0 1-46.042884-7.39857L528.657533 883.039085l-248.578723 132.150342a71.640613 71.640613 0 0 1-97.271371-30.585158c-7.36554-14.202611-9.908798-30.45304-7.233423-46.241059l47.430115-280.220819-201.082549-197.944763a73.523284 73.523284 0 0 1-1.222085-103.117563 71.805759 71.805759 0 0 1 41.154542-21.237857l278.007854-40.791221 124.190274-254.457943a71.442437 71.442437 0 0 1 128.847409 0l124.256332 254.722178 277.908766 40.79122c39.403988 5.614986 66.884389 42.475716 61.368491 82.375144-2.212965 15.821048-9.479417 30.48607-20.742418 41.716042z",
+                symbolSize: [10, 10],
+                itemStyle: {
+                    normal: {
+                        show: true,
+                        color: "red"
+                    }
+                },
+                data: [{
+                    name: "北京",
+                    value: [116.397128, 39.916527]
+                }]
+            }]
+        };
+        myChart2.setOption(option);
+    }
+
+
+// 去年控制我国境内主机数量前10 
+  $('#attackBox').click(function(){
+    $("#controllTop10").css("display","block");
+  });
+    $('#controllTop10 .closeBtn').click(function() {
+        $("#controllTop10").hide();
+    });
+    // 监管
+    $('#RAttack').click(function(){
+        $("#JGChart").css("display","block");
+        RightdrawChart()
+     });
+    $('#JGChart .closeBtn').click(function() {
+        $("#JGChart").hide();
+    });
+</script>

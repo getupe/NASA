@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>网络攻击态势感知</title>
+		<script src="../lib/jquery-3.3.1.js"></script>
+		<script src="../lib/echarts.js"></script>
+		<script src="../js/registerMap/province.js"></script>
+		<link href="../style/css/province.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div id = 'provincePage'>
+			<div class="header">
+				<div class="divTitle" id="headerTitle"></div>
+				<div id="breadcrnmb">
+					<div class="breadItem" id="toIndexBtn">全球</div>
+					<div class="breadItem" id="toWorldBtn">中国</div>
+					<div class="breadItem" id="toChinaBtn">省份</div>
+				</div>
+				<div id="systemTimeTJ"></div>
+			</div>
+			<div class="content">
+				<div class="eachCol left">
+					<div class="eachItem top" id="tjAttack">
+						<div class="title lastYear" id="wlgjT"></div>
+						<div class="panel">
+							<div class="show">
+								<div class="img"></div>
+								<div class="value">
+									<span class="num"></span>
+									<span class="add">万+</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="eachItem bottom" id="tjMm">
+						<div class="title lastYear" id="bzrmmT"></div>
+						<div class="panel">
+							<div class="show">
+								<div class="img"></div>
+								<div class="value">
+									<span class="num"></span>
+									<span class="add">+</span>
+							    </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="eachCol center">
+					<div class="chartPanel" id="tjChart"></div>
+					<div class="chartBottom" id="tjBackdoor">
+						<div class="title lastYear" id="hmwzT"></div>
+						<div class="panel">
+							<div class="img"></div>
+							<div class="value"></div>
+						</div>
+					</div>
+				</div>
+				<div class="eachCol right">
+					<div class="eachItem top" id="tjWeb">
+						<div class="title lastYear" id="bcgwzT"></div>
+						<div class="panel">
+							<div class="show">
+								<div class="img"></div>
+								<div class="value">
+									<span class="num"></span>
+									<span class="add">+</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="eachItem bottom" id="tjDDOS">
+						<div class="title lastYear" id="DDOSgjT"></div>
+						<div class="panel">
+							<div class="show">
+								<div class="img"></div>
+								<div class="value">
+									<span class="num"></span>
+									<span class="add">+</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/province.js"></script>
+</html>

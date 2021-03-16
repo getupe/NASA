@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>网络攻击态势感知</title>
+		<script src="../lib/jquery-3.3.1.js"></script>
+		<script src="../lib/echarts.js"></script>
+		<script src="../js/registerMap/world.js"></script>
+		<script src="../js/registerMap/china.js"></script>
+		<link href="../style/css/china.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div class="container-fluid" id="bg">
+			<header class="header">
+				<div class="divTitle">
+					<p style="margin: 6px" id="headerTitle"></p>
+				</div>
+				<div id="systemTime"></div>
+			</header>
+			<div class="fh1">
+				<label onclick="jumpBack('index')" style="cursor: pointer">全球</label>
+				<span style="margin-left: 5px" id= "jumpBackBtn">
+					<label onclick="jumpBack('world')" style="cursor: pointer">中国</label>
+				</span>
+				<div id="mbx"></div>
+			</div>
+			<div class="mainbody">
+				<div id="cnterEcharsC1" class=" topshow"> </div>
+				<div class="lefT topshow" id = 'typeSta'>
+					<div class="msTil lastYear"></div>
+					<div class="centM" style="top: 60px">
+						<div class="pMmins" id="echarslet"></div>
+					</div>
+				</div>
+				<div class="lefM topshow" id = 'attackHY'>
+					<div class="msTil lastYear"></div>
+					<div class="centM">
+						<div class="pMmins" id="echarslem"></div>
+					</div>
+				</div>
+				<div class="lefD topshow" id = 'controlled'>
+					<div class="msTil lastYear"></div>
+					<div class="centM">
+						<div class="pMminw" id="echarsr"></div>
+					</div>
+					<div class = "tipText tipTextLeft lastYear">（数据来源：国家互联网应急中心%lastYear%中国互联网网络安全报告）</div>
+				</div>
+			</div>
+			<div class="rigT topshow right3" id="zjsl">
+				<div class="msTil1 lastYear"></div>
+				<div class="centM" style="top: 60px">
+					<div class="pMminv" id="echarsrt"></div>
+				</div>
+			</div>
+			<div class="rigM topshow right3" id="jjfw">
+				<div class="msTil1 lastYear"></div>
+				<div class="centM">
+					<div class="pMmins" id="echarslm"></div>
+				</div>
+			</div>
+			<div class="rigD topshow right3" id="yygj">
+				<div class="msTil1 lastYear"></div>
+				<div class="centM ">
+					<div class="pMmins" id="echarsrm"></div>
+				</div>
+				<div class = "tipText tipTextRight lastYear">（数据来源：%lastYear%瑞星互联网网络安全报告）</div>
+			</div>
+			<div class=" topshow" id="listBox" style="bottom: 22px;height:300px;width: 800px;left: 560px;position: absolute">
+				<div class="centM2" style="top: 0">
+					<div id="top-header">
+						<ul class="top-ul">
+							<li>攻击类型</li>
+							<li>攻击源</li>
+							<li>被攻击地区</li>
+							<li>攻击时间</li>
+						</ul>
+					</div>
+					<div class="prize-databox" style="overflow: hidden" id="prize-databox2">
+						<ul id="chinaListBox"></ul>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div id = 'radarChart' style="display: none;">
+				<div class="panel">
+					<div class="closeBtn"></div>
+					<div class="content">
+						<header class="lastYear" id="bkzjP"></header>
+						<div class="rChart" id = 'rChartPanel'></div>
+					</div>
+				</div>
+			</div>
+			<div id = 'typeChart' style="display: none;">
+				<div class="panel">
+					<div class="closeBtn"></div>
+					<div class="content">
+						<header class="lastYear" id="bdlxtjP"></header>
+						<div class="rChart" id = 'typeChartPanel'></div>
+					</div>
+				</div>
+			</div>
+			<div id = 'attackChart' style="display: none;">
+				<div class="panel">
+					<div class="closeBtn"></div>
+					<div class="content">
+						<header class="lastYear" id="APThyzbP"></header>
+						<div class="rChart" id = 'attackChartPanel'></div>
+					</div>
+				</div>
+			</div>
+			<div id = 'right3Charts' style="display: none;">
+				<div class="panel">
+					<div class="closeBtn"></div>
+					<div class="content">
+						<div class='rightC'>
+							<header class="lastYear" id="jszjP"></header>
+							<div class="rChart" id = 'rightC1'></div>
+						</div>
+						<div class='rightC'>
+							<header class="lastYear" id="fbsjjfwP"></header>
+							<div class="rChart" id = 'rightC2'></div>
+						</div>
+						<div class='rightC'>
+							<header class="lastYear" id="yygjP"></header>
+							<div class="rChart" id = 'rightC3'></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/china.js"></script>
+</html>

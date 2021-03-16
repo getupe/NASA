@@ -1,0 +1,616 @@
+body, html{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    background: #010a28;
+    overflow: hidden;
+}
+/* 引入字体 */
+@font-face {
+	font-family: 'CN-Bold';
+	src: url('../font/SourceHanSansCN-Bold.otf');
+}
+@font-face {
+	font-family: 'lcdnova';
+	src: url('../font/a_lcdnova.woff.ttf');
+}
+@font-face {
+	font-family: 'Medium';
+	src: url('../font/SourceHanSansCN-Medium.otf');
+}
+@font-face {
+	font-family: 'Normal';
+	src: url('../font/SourceHanSansCN-Normal.otf');
+}
+@font-face {
+	font-family: 'Regular';
+	src: url('../font/SourceHanSansCN-Regular.otf');
+}
+
+#systemTime{
+    font-size: 22px;
+    background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent; 
+    position: absolute;    
+    top: 65px;
+    right: 75px;
+    font-family: lcdnova;
+}
+.fh1{
+    position: absolute;
+    left: 50px;
+    cursor: pointer;
+    color: #ffffff;
+    top: 55px;
+}
+.fh1 label{
+    background: url(../images/attack/btnBox.png) no-repeat center;
+    background-size: 100% 92%;
+    font-size: 24px;
+    margin: 0;
+    font-family: Medium;
+    width: 105px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    display: inline-block;
+}
+ul,li {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    min-width: 100px;
+    margin: 0;
+    top: 0;
+    overflow: hidden;
+    min-height: 200px;
+    background: url(../images/index/bgStar.png) repeat;
+    background-size: 100% 100%;
+}
+.header {
+    background: url(../images/index/titleBox.png) no-repeat;
+    margin-top: 10px;
+    width: 100%;
+    height: 90px;
+    background-size: 100% 100%;
+}
+.divTitle {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+	font-size: 58px;
+	font-family: "CN-Bold";
+	background-image: linear-gradient(to right,#01aaff,#00eaff,#01aaff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.lfR{
+	height: 100px;
+	text-align: center;
+	margin-top: -92px;
+	margin-right: 80px;
+	background-color: lawngreen;
+}
+.mainbody{
+    position: absolute;
+    left: 22px;
+	right: 22px;
+	height: 912px;
+	top: 122px;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* 首页新css */
+.leftBox{
+	width: 380px;
+	display: flex;
+    flex-direction: column;
+	justify-content: space-between;
+	background: rgba(14, 45, 103, 0.46);
+}
+.leftBox .text{
+	color: #fff;
+}
+.lf-list {
+	display: flex;
+    flex-direction: column;
+	height: fit-content;
+}
+.boxContent{
+	width: 100%;
+	height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lfBottom {
+	width: 90%;
+	height: 60%;
+	margin-top: 110px;
+	float: left;
+	margin-left: 3%;
+}
+.lfTitle{
+	color: white;
+	font-size: 18px;
+	text-indent: 40px;
+	top: 20px;
+	position: absolute;
+}
+.center{
+	width: calc(100% - 804px);
+	height: 100%;
+}
+.typeBox {
+	width: 192px;
+	height: 215px;
+	position: absolute;
+	left: 402px;
+	top: 430px;
+}
+.rt-Bot {
+	width: 100%;
+    height: calc(100% - 125px);
+    color: #fff;
+}
+/* 左侧导航 */
+.lfbox {
+	width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.lfbox img{
+	width: 28px;
+	height: 28px;
+}
+.lfbg {
+	width: 142px;
+	height: 36px;
+	background: linear-gradient(to right, #014fff00, #014fff, #014fff00);
+    font-size: 22px;
+	text-align: center;
+	font-family: Medium;
+	display: flex;
+    justify-content: center;
+	align-items: center;
+	
+}
+.lfbg .text{
+    background: linear-gradient(to bottom, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent; 
+}
+.center .centerBottom{
+	width: 1072px;
+    height: 250px;
+}
+.T-title {
+	font-size: 40px;
+    text-align: center;
+    font-family: "CN-Bold";
+    height: 60px;
+    line-height: 60px;
+    background-image: linear-gradient(to right,#01aaff,#00eaff,#01aaff);
+    -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.rt-T {
+	padding: 0 45px;
+    height: 85px;
+	font-size: 30px;
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 20px;
+	font-family: 'CN-Bold';
+	background-image: linear-gradient(to right,#01aaff,#00eaff,#01aaff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.T-SMtitle{
+	font-size: 13px;
+    font-family: 'CN-Bold';
+    background-image: linear-gradient(to right,#01aaff,#00eaff,#01aaff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    height: fit-content;
+    text-align: center;
+	letter-spacing: -1px;
+	margin-top: 5px;
+	position: fixed;
+    left: 50px;
+    bottom: 10px;
+}
+
+.lfTitle{
+	color: white;
+	font-size: 18px;
+	text-indent: 40px;
+	top: 20px;
+	position: absolute;
+}
+/* 左侧 */
+#attackBox .tabBody{
+    height: calc(100% - 60px);
+    overflow: hidden;
+}
+#attackBox .title{
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    display: flex;
+    font-family: 'Medium';
+    font-size: 24px;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+    padding: 0 20px;
+}
+#attackBox .title .each{
+    width: 50%;
+    text-align: center;
+}
+#attackBox .content{ 
+	width: 100%;
+	height: 100%;
+	color: #fff;
+} 
+#attackBox #attackBox .content .cTBody{ 
+	width: 100%;
+	height: 100%; 
+	display: flex; 
+	flex-direction: column;
+} 
+#attackBox .content .cTBody .row{ 
+    padding: 20px 20px 20px 40px;
+    display: flex;
+    justify-content: space-evenly; 
+    font-family: Medium;
+    font-size: 20px;
+} 
+#attackBox .content .cTBody .row .left{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+#attackBox .imgBox{
+    display: flex;
+    align-items: center;
+}
+#attackBox .imgBox img{
+    margin-right: 10px;
+    height: 25px;
+    width: 38px;
+}
+#attackBox .imgBox .countryName{
+    width: 82px;    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#attackBox .content .cTBody .row .right{
+    width: calc(50% - 50px);
+    text-align: right;
+    padding-right: 50px;
+}
+/* map 下列表 */
+.listT {
+	color: white;
+    background: linear-gradient(to right, #0825b7, #014fff, #0825b7);
+}
+.listT ul {
+    display: flex;
+    font-size: 22px;
+    justify-content: flex-start;
+	
+}
+.listT li {
+	height: 50px;
+	line-height: 50px;
+    text-align: center;
+    font-family: "Medium";
+}
+.prize-databox {
+	width: 100%;
+	height: 200px;
+	overflow: hidden;
+	background: #215aff4d;
+}
+#prize-databox ul {
+	width: 100%;
+	color: white;
+	overflow: hidden;
+}
+#prize-databox ul .attackIcon{
+	margin-right: 12px;
+    width: 25px;
+    height: 25px;
+}
+#prize-databox ul .secCol{
+	text-align: left;
+	padding-left: 110px;
+}
+#prize-databox li {
+	display: flex;
+	font-family: "Medium";
+	justify-content: flex-start;
+	height: 40px;
+	line-height: 40px;
+	box-sizing: border-box;
+	font-size: 16px;
+	text-align: center;
+}
+#prize-databox li>span {
+	width: 25%;
+}
+tr {
+	height: 72px;
+}
+td {
+	font-size: 24px;
+}
+.countryIcon{
+	width: 30px;
+	height: 21px;
+	margin-right: 12px;
+}
+.rightBox{
+	width: 380px;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-between;
+	background: rgba(14, 45, 103, 0.46);
+}
+
+.rightBox .rBTitle{
+	width: 100%;
+	height: 65px;
+	line-height: 65px;
+	font-size: 30px;
+    background-image: linear-gradient(to right,#01aaff,#00eaff,#01aaff);
+    -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-align: center;
+	font-family: CN-Bold;
+}
+.rightBox .item{
+	width: 100%;
+    height: calc((100% - 109px)/3);
+}
+.rightBox .item .title{
+	text-align: left;
+    color: #fff;
+    font-size: 25px;
+    margin-top: 10px;
+    font-family: Medium;
+    letter-spacing: -2px;
+    background: url(../images/index/titleBoxSmall.png) no-repeat;
+    width: 270px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 40px;
+    margin-left: 80px;
+}
+.titleLarge{
+	background: url(../images/index/titleBoxLarge.png) no-repeat;
+}
+.rightBox .item .chart{
+	width: calc(100% - 40px);
+    height: calc(100% - 90px);
+    margin: 20px;
+}
+.right{
+	height: 100%;
+}
+.NewrightBox{
+	width: 380px;
+	display: flex;
+	flex-direction: row;
+	margin-left: 50px;
+}
+.NewrightBox .Newtitle {
+    text-align: left;
+    color: #fff;
+    font-size: 28px;
+    margin-top: 10px;
+    font-family: Medium;
+    letter-spacing: -2px;
+    background: url(../images/index/titleBoxSmall.png) no-repeat;
+    width: 275px;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 40px;
+    margin-left: 80px;
+    margin-bottom: 70px;
+}
+.NewrightBox .Newchart {
+	width: 430px;
+	height: 320px;
+	margin-right: 50px;
+	margin-top: 20px;
+}
+
+/* 新的二级图形 */
+.JGChart .Newchart{
+	width: 300px;
+	height: 300px;
+	margin: 20px;
+	background-color: lawngreen;
+}
+/* 二级  弹框 */
+/* 去年被控主机分布雷达图 */
+#controllTop10{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #00000055;
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	margin-top: -50px;
+	margin-left: 215px;
+}
+#controllTop10 .panel{
+    width: 1490px;
+    height: 916px;
+    background: #162550ee;
+    position: relative;
+
+}
+#controllTop10 .panel .closeBtn{
+    position: absolute;
+    top: -22px;
+    right: -22px;
+    width: 45px;
+    height: 45px;
+    background: url(../images/attack/rClose.png) no-repeat center;
+    background-size: 100% 100%;
+}
+#controllTop10 .panel .content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+#controllTop10 .panel .content header{
+    width: 100%;
+    padding-top: 35px;
+    font-size: 48px;
+    text-align: center;
+    background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent; 
+}
+#controllTop10 .panel .content .rChart{
+    width: 100%;
+    height: calc(100% - 100px);
+}
+#controllTop10 .rt-T{
+    font-size: 48px;
+    margin-top: 50px;
+    height: 90px;
+}
+
+/* 监管
+radarChart */
+#JGChart{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #00000055;
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	margin-top: -50px;
+	margin-left: 215px;
+}
+#JGChart .panel{
+    width: 1490px;
+    height: 816px;
+    background: #162550ee;
+    position: relative;
+
+}
+#JGChart .panel .closeBtn{
+    position: absolute;
+    top: -22px;
+    right: -22px;
+    width: 45px;
+    height: 45px;
+    background: url(../images/attack/rClose.png) no-repeat center;
+    background-size: 100% 100%;
+}
+#JGChart.panel .content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+#JGChart .panel .content header{
+    width: 100%;
+    padding-top: 50px;
+    font-size: 48px;
+    text-align: center;
+    background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent; 
+    margin-bottom: 90px;
+}
+#JGChart .panel .content .rChart{
+    width: 100%;
+    height: calc(100% - 100px);
+}
+/* 左侧弹窗 */
+#leftBox .boxTitle{
+    width: 1000px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    display: flex;
+    font-family: 'Medium';
+    font-size: 28px;
+    margin-bottom: 35px;
+}
+#leftBox .boxTitle .each{
+    width: 50%;
+    text-align: center;
+}
+#leftBox .boxBody{
+    width: 1000px;
+}
+#leftBox .content .cTBodyNew{ 
+	width: 100%;
+	height: 100%; 
+	display: flex; 
+	flex-direction: column;
+} 
+#leftBox .content .cTBodyNew .row {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 17px 0;
+}
+#leftBox .left{
+	width: 50%;
+    font-family: Medium;
+    display: flex;
+    justify-content: center;
+}
+#leftBox .left .imgBox{
+    display: flex;
+    align-items: center;
+	font-size: 20px;
+    padding-left: 20px;
+}
+#leftBox .left img {
+    width: 42px;
+    height: 28px;
+    margin-right: 20px;
+}
+#leftBox .left .countryName{
+    width: 82px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#leftBox .content .cTBodyNew .right{
+	font-size: 20px;
+    font-family: Medium;
+    width: calc(50% - 225px);
+    padding-right: 225px;
+    text-align: right;
+}

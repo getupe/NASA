@@ -1,0 +1,565 @@
+@font-face{
+    font-family: SSC-Bold;
+    src: url(../font/SourceHanSansCN-Bold.otf);
+}
+@font-face{
+    font-family: SSC-Regular;
+    src: url(../font/SourceHanSansCN-Regular.otf);
+}
+@font-face{
+    font-family: SSC-Medium;
+    src: url(../font/SourceHanSansCN-Medium.otf);
+}
+@font-face{
+    font-family: a_lcdnova;
+    src: url(../font/a_lcdnova.woff.ttf);
+}
+body, html{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    background: #010a28;
+    overflow: hidden;
+    font-family: SSC-Regular;
+}
+ul,li {
+	width: 100%;
+	color: rgb(7, 255, 255);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    min-width: 100px;
+    margin: 0;
+    top: 0;
+    overflow: hidden;
+    min-height: 200px;
+    background: url(../images/index/bgStar.png) no-repeat;
+    background-size: 100% 100%;
+}
+.header {
+    background: url(../images/index/titleBox.png) no-repeat;
+    width: 100%;
+    height: 90px;
+    background-size: 100% 100%;
+    margin-top: 10px;
+}
+.divTitle {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 58px;
+    background: linear-gradient(to bottom, #80f2ff, #5197ff);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: SSC-Bold;
+}
+.mainbody{
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 1%;
+    top: 115px;
+
+}
+.prize-databox {
+	width: 100%;
+    overflow: hidden;
+}
+#chinaListBox li {
+    height: 40px;
+    line-height: 40px;
+}
+#chinaListBox li .secCol{
+    padding-left: 65px;
+    text-align: left;
+}
+.attackIcon{
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}
+.countryIcon{
+    width: 27px;
+    height: 18px;
+    margin-right: 10px;
+}
+#top-header {
+	width: 100%;
+    height: 50px;
+    background: linear-gradient(to right, #0825b7, #014fff, #0825b7);
+}
+#top-header .top-ul {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+}
+#top-header .top-ul li {
+	width: 25%;
+	text-align: center;
+	font-size: 22px;
+    color: #ffffff;    
+    height: 50px;
+    line-height: 50px;
+    font-family: SSC-Medium;
+}
+#prize-databox2 ul li {
+	display: flex;
+	justify-content: center;
+	font-size: 16px;
+}
+#prize-databox2 ul .highLine{
+    background: #215aff4d;
+}
+#prize-databox2 ul .highLine span{
+    color: #e20000;
+}
+#prize-databox2 ul li span {
+	display: inline-block;
+	width: 25%;
+    text-align: center;
+    color: #ffffff;
+    padding: 3px 0;
+    font-family: SSC-Medium;
+}
+#prize-databox2 ul li span:nth-child(1){
+	text-align: center;
+}
+.lefT{
+    position: absolute;
+    height: 300px;
+    width: 516px;
+    top: 0;
+    background-size: 100% 100%;
+    background-color: #215aff11;
+}
+.lefM{
+    position: absolute;
+    height: 300px;
+    width: 516px;
+    top: 322px;
+    background-size: 100% 100%;
+    background-color: #215aff11;
+}
+.lefD{
+    position: absolute;
+    height: 300px;
+    width: 516px;
+    top: 644px;
+    background-size: 100% 100%;
+    background-color: #215aff11;
+}
+.rigT{
+    position: absolute;
+    right: 22px;
+    height: 300px;
+    width: 516px;
+	top: 115px;
+    background: rgba(14, 45, 103, 0.46);
+}
+.rigM{
+    position: absolute;
+    right: 22px;
+    height: 300px;
+    width: 516px;
+    top: 435px;
+    background: rgba(14, 45, 103, 0.46);
+}
+.rigD{
+    position: absolute;
+    right: 22px;
+    height: 300px;
+    width: 516px;
+    top: 757px;
+    background: rgba(14, 45, 103, 0.46);
+}
+.msTil{
+    text-align: center;
+    background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 30px;
+    margin-top: 10px;
+    letter-spacing: -2px;
+    font-family: SSC-Bold;
+}
+#msTilTitle{
+    background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent;    
+    font-size: 40px;
+    font-family: SSC-Bold;
+}
+.msTil1{
+    text-align: center;
+    background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 30px;
+    margin-top: 10px;
+    font-family: SSC-Bold;
+    letter-spacing: -2px;
+}
+.centM{
+    position: absolute;
+    top: 45px;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+
+}
+.tipText{
+    width: 100%;
+    position: absolute;
+    font-size: 14px;
+    bottom: -12px;
+    background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-family: SSC-Bold;
+}
+.tipTextLeft{
+    left: 15px;
+}
+.tipTextRight{
+    right: -220px;
+}
+.flx{
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+
+}
+.pMmins{
+    width: 100%;
+    height: 100%;
+	overflow: hidden;
+}
+/* 攻击类型统计 */
+.pMminv{
+    width: 100%;
+    height: 100%;
+	overflow: hidden;
+}
+/* APT攻击行业分布 */
+.pMminw{
+    width: 100%;
+    height: 100%;
+	overflow: hidden;
+}
+#cnterEchars{
+    position: absolute;
+    top:3%;
+    height: 760px;
+    left: 8%;
+    width: 84%;
+}
+/* map */
+#cnterEchars11{
+    position: absolute;
+    top:2%;
+    height: 77%;
+    width: 100%;
+}
+#cnterEcharsC1{
+    position: absolute;
+    top: 60px;
+    width: 800px;
+    height: 560px;
+    display: none;
+    left: 538px;
+}
+.fh1{
+    position: absolute;
+    left: 50px;
+    cursor: pointer;
+    color: #ffffff;
+    top: 55px;
+}
+.fh1 label{
+    background: url(../images/attack/btnBox.png) no-repeat center;
+    background-size: 100% 92%;
+    font-size: 24px;
+    margin: 0;
+    font-family: SSC-Medium;
+    width: 105px;
+    height: 42px;
+    line-height: 42px;
+    text-align: center;
+    display: inline-block;
+}
+.topshow{
+    animation:fadeInUp 1.5s 0.5s ease both;
+}
+.tophide{
+    animation:fadeInUp1 1s 0s ease both;
+
+}
+@keyframes fadeInUp{
+    0%{opacity:0;
+        transform:translateY(40px)}
+    100%{opacity:1;
+        transform:translateY(0)}
+}
+@keyframes fadeInUp1{
+    0%{opacity:1;
+        transform:translateY(0px)}
+    100%{opacity:0;
+        transform:translateY(80px)}
+}
+.btn{
+    cursor: pointer;
+}
+.centM2{
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    background: #215aff33;
+}
+
+/* list */
+#prize-databox ul{
+	width: 100%;
+	color: rgb(7, 255, 255);
+	margin: 0;
+	padding: 0;
+}
+#prize-databox li{
+	width: 100%;
+	list-style: none;
+}
+#prize-databox span{
+	margin: 0px 50px;
+	font-size: 20px;
+}
+#prize-databox ul li {
+	display: flex;
+	justify-content: flex-start;
+	padding: 4px 30px;
+	box-sizing: border-box;
+}
+#prize-databox ul li  span{
+    width: 250px;
+    margin: 0 60px;
+}
+#prize-databox .pr-num {
+	display: inline-block;
+	width: 176px;
+}
+#prize-databox span:nth-child(2) {
+	display: inline-block;
+	width: 193px;
+}
+#systemTime{
+    font-size: 22px;
+    background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent; 
+    position: absolute;    
+    top: 65px;
+    right: 50px;
+    font-family: a_lcdnova;
+}
+/* 去年被控主机分布雷达图 */
+#radarChart{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #00000055;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#radarChart .panel{
+    width: 1490px;
+    height: 916px;
+    background: #162550ee;
+    position: relative;
+
+}
+#radarChart .panel .closeBtn{
+    position: absolute;
+    top: -22px;
+    right: -22px;
+    width: 45px;
+    height: 45px;
+    background: url(../images/attack/rClose.png) no-repeat center;
+    background-size: 100% 100%;
+}
+#radarChart .panel .content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+#radarChart .panel .content header{
+    width: 100%;
+    padding-top: 35px;
+    font-size: 48px;
+    text-align: center;
+    background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent; 
+    font-family: SSC-Bold;
+}
+#radarChart .panel .content .rChart{
+    width: 100%;
+    height: calc(100% - 100px);
+}
+/* 去年病毒类型统计 */
+#typeChart{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #00000055;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#typeChart .panel{
+    width: 1490px;
+    height: 916px;
+    background: #162550ee;
+    position: relative;
+
+}
+#typeChart .panel .closeBtn{
+    position: absolute;
+    top: -22px;
+    right: -22px;
+    width: 45px;
+    height: 45px;
+    background: url(../images/attack/rClose.png) no-repeat center;
+    background-size: 100% 100%;
+}
+#typeChart .panel .content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+#typeChart .panel .content header{
+    width: 100%;
+    padding-top: 35px;
+    font-size: 48px;
+    text-align: center;
+    background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent; 
+    font-family: SSC-Bold;
+}
+#typeChart .panel .content .rChart{
+    width: calc(100% - 300px);
+    height: calc(100% - 250px);
+    margin-top: 70px;
+}
+/* 去年APT攻击行业占比分析 */
+#attackChart{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #00000055;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#attackChart .panel{
+    width: 1490px;
+    height: 916px;
+    background: #162550ee;
+    position: relative;
+}
+#attackChart .panel .closeBtn{
+    position: absolute;
+    top: -22px;
+    right: -22px;
+    width: 45px;
+    height: 45px;
+    background: url(../images/attack/rClose.png) no-repeat center;
+    background-size: 100% 100%;
+}
+#attackChart .panel .content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+#attackChart .panel .content header{
+    width: 100%;
+    padding-top: 35px;
+    font-size: 48px;
+    text-align: center;
+    background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent; 
+    font-family: SSC-Bold;
+}
+#attackChart .panel .content .rChart{
+    width: calc(100% - 300px);
+    height: calc(100% - 250px);
+    margin-top: 70px;
+}
+/* 右边三个图 */
+#right3Charts{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #00000055;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#right3Charts .panel{
+    width: 1600px;
+    height: 800px;
+    background: #162550ee;
+    position: relative;
+}
+#right3Charts .panel .closeBtn{
+    position: absolute;
+    top: -22px;
+    right: -22px;
+    width: 45px;
+    height: 45px;
+    background: url(../images/attack/rClose.png) no-repeat center;
+    background-size: 100% 100%;
+}
+#right3Charts .panel .content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+#right3Charts .panel .content .rightC{
+    width: calc((100% - 60px)/3);
+}
+#right3Charts .panel .content header{
+    width: 100%;
+    height: 300px;
+    padding-top: 150px;
+    font-size: 30px;
+    text-align: center;
+    background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent; 
+    font-family: SSC-Bold;
+}
+#right3Charts .panel .content .rChart{
+    width: 100%;
+    height: 320px;
+}

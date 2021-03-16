@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网络攻击态势感知</title>
+    <script src="lib/jquery-3.3.1.js"></script>
+    <script src="lib/echarts.js"></script>
+    <script src="lib/echarts-gl.js"></script>
+    <script src="js/registerMap/world.js"></script>
+    <link href="style/css/index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="container-fluid" id="bg">
+      <header class="header">
+        <div class="divTitle">
+          <p id="headerTitle"></p>
+        </div>
+        <div id="systemTime"></div>
+      </header>
+      <div class="mainbody">
+        <div id="listPopBox" class="lf-list">
+          <div class="lfTop" id = 'lfTop1'>
+            <div class="lfTbor">
+              <p class="lfTitle lastYear" id="bgjdq"></p>
+            </div>
+            <div class="tabTopT">
+              <span class="tabTopL">国家或地区</span>
+              <span class="tabTopTR">占比</span>
+            </div>
+            <div class="table-responsive" style="overflow-y: hidden;">
+              <div class="index-content-left">
+                <ul id="attactedTop10"></ul>
+              </div>
+            </div>
+          </div>
+          <div class="lfTop" id = 'lfTop2'>
+            <div class="lfTbor">
+              <p class="lfTitle lastYear" id="gjy"></p>
+            </div>
+            <div class="tabTopT">
+              <span class="tabTopL">国家或地区</span>
+              <span class="tabTopTR">占比</span>
+            </div>
+            <div class="table-responsive" style="overflow-y: hidden;">
+              <div class="index-content-left">
+                <ul id='attactSourceTop10'></ul>
+              </div>
+            </div>
+          </div>
+          <div class="bottomText">
+            <p class="numT">(数据来源： 俄罗斯卡巴斯基实验室)</p>
+          </div>
+        </div>
+        <div class="center">
+          <div class="Centertopshow">
+            <div id="cnterEchars" class=" topshow" style="width: 100%;height: 100%;margin-left: 0%;"></div>
+          </div>
+        </div>
+        <div class="right" >
+          <div class="rt-Top">
+            <!-- 右上角小地图 -->
+            <div onclick="fh()" id="thumbnail" class=" topshow" style="width: 100%;height: 100%;"></div>
+          </div>
+          <div class="rt-bottom">
+            <div class="rtBT">
+              <p class="RT-title lastYear" id="gjsjhf"></p>
+            </div>
+            <div class="dowebok" id= 'attackList'>
+              
+            </div>
+          </div>
+          <div class="RbottomText">
+            <p class="RnumT">(数据来源： 俄罗斯卡巴斯基实验室)</p>
+          </div>
+        </div>
+      </div>
+      <div id = 'listPop' class="listPop" style="display: none;">
+        <div class="panel">
+          <div class="closeBtn"></div>
+          <div class="content" id = 'listPopContent'>
+            <div class="lfTop" id = 'lfTop1'>
+              <div class="lfTbor">
+                <p class="lfTitle lastYear" id="bgjdqP"></p>
+              </div>
+              <div class="tabTopT">
+                <span class="tabTopL">国家或地区</span>
+                <span class="tabTopTR">占比</span>
+              </div>
+              <div class="table-responsive" style="overflow-y: hidden;">
+                <div class="index-content-left">
+                  <ul id="attactedTop10P"></ul>
+                </div>
+              </div>
+            </div>
+            <div class="lfTop" id = 'lfTop2'>
+              <div class="lfTbor">
+                <p class="lfTitle lastYear" id="bgjyP"></p>
+              </div>
+              <div class="tabTopT">
+                <span class="tabTopL">国家或地区</span>
+                <span class="tabTopTR">占比</span>
+              </div>
+              <div class="table-responsive" style="overflow-y: hidden;">
+                <div class="index-content-left">
+                  <ul id='attactSourceTop10P'></ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+  <script src="js/index.js"></script>
+</html>

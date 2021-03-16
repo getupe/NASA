@@ -1,0 +1,238 @@
+/* 引入字体 */
+@font-face {
+	font-family: 'CN-Bold';
+	src: url('../font/SourceHanSansCN-Bold.otf');
+}
+@font-face {
+	font-family: 'lcdnova';
+	src: url('../font/a_lcdnova.woff.ttf');
+}
+@font-face {
+	font-family: 'Medium';
+	src: url('../font/SourceHanSansCN-Medium.otf');
+}
+@font-face {
+	font-family: 'Normal';
+	src: url('../font/SourceHanSansCN-Normal.otf');
+}
+@font-face {
+	font-family: 'Regular';
+	src: url('../font/SourceHanSansCN-Regular.otf');
+}
+@font-face {
+	font-family: 'LESLIEB';
+	src: url('../font/LESLIEB.ttf');
+}
+html, body{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Normal';
+}
+#provincePage{
+    width: 100%;
+    height: 100%;
+    background: url(../images/index/bgStar.png) no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    min-width: 200px;
+    min-height: 200px;
+}
+/* 头部 */
+#provincePage .header{
+    width: 100%;
+    height: 90px;
+    background: url(../images/index/titleBox.png) no-repeat;
+    background-size: 100% 100%;
+    margin-top: 10px;
+}
+.divTitle {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	font-size: 58px;
+	font-family: "CN-Bold";
+	background-image: linear-gradient(to right,#01aaff,#00eaff,#01aaff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+#breadcrnmb{
+    position: absolute;    
+	top: 57px;
+    left: 40px;
+    display: flex;
+}
+#breadcrnmb .breadItem{
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 22px;
+    font-family: Medium;
+    color: #ffffff;
+    margin-right: 10px;
+    text-align: center;
+    background: url(../images/province/btn.png) no-repeat center;
+    cursor: pointer;
+}
+#systemTimeTJ{
+	font-size: 22px;
+	background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+	-webkit-background-clip: text;
+	color: transparent; 
+	position: absolute;    
+	top: 65px;
+	right: 75px;
+	font-family: lcdnova;
+}
+/* 内容 */
+#provincePage .content{
+    width: 100%;
+	height: 936px;
+    display: flex;
+	justify-content: space-evenly;
+    margin-top: 22px;
+}
+#provincePage .content .left{
+    width: calc((100% - 88px)*0.25);
+}
+#provincePage .content .center{
+    width: calc((100% - 88px)*0.5);
+    
+}
+#provincePage .content .right{
+    width: calc((100% - 88px)*0.25);    
+}
+#provincePage .content .eachCol{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#provincePage .content .eachCol .eachItem{
+    width: 100%;    
+    background-color: #215aff11;
+    height: calc((100% - 22px)/2);
+}
+#provincePage .content .eachCol .eachItem .title{
+    height: 150px;
+    line-height: 150px;
+    margin-bottom: 10px;
+    text-align: center;
+    background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 30px;
+    letter-spacing: -1px;
+    font-family: CN-Bold;
+}
+#provincePage .content .eachCol .eachItem .panel{
+    width: 100%;
+    height: calc(100% - 160px);
+}
+#provincePage .content .eachCol .eachItem .panel .show{
+    width: calc(100% - 25px);
+    margin-left: 25px;
+    height: 200px;
+    display: flex;
+}
+#provincePage .content .eachCol .eachItem .panel .show .img{
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+}
+#provincePage .content .eachCol .eachItem .panel .show .value{
+    width: calc(100% - 200px);
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+#provincePage .content .eachCol .eachItem .panel .show .value .num{
+    font-size: 72px;
+    font-family: LESLIEB;
+}
+#provincePage .content .eachCol .eachItem .panel .show .value .add{
+    font-size: 60px;
+    font-family: Regular;
+} 
+#tjAttack .img{
+    background: url(../images/province/attck.png) no-repeat; 
+}
+#tjAttack .value{
+    color: #d0c200;
+    left: -13px;
+}
+#tjMm .img{
+    background: url(../images/province/mm.png) no-repeat; 
+}
+#tjMm .value{
+    color: #68bcff;
+    left: -5px;
+}
+#tjWeb .img{
+    background: url(../images/province/web.png) no-repeat; 
+}
+#tjWeb .value{
+    color: #f38400;
+    left: -10px;
+}
+#tjDDOS .img{
+    background: url(../images/province/ddos.png) no-repeat; 
+}
+#tjDDOS .value{
+    color: #d01919;
+    left: -13px;
+}
+/* 地图下面的图 */
+.chartBottom{
+    width: 100%;
+    height: 322px;
+    background-color: #215aff11;
+}
+.chartBottom .title{
+    height: 92px;
+    line-height: 92px;
+    margin-top: 10px;
+    text-align: center;
+    background: linear-gradient(to right, #01aaff, #00eaff, #01aaff);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 30px;
+    letter-spacing: -1px;
+    font-family: CN-Bold;
+}
+.chartBottom .panel{
+    width: 100%;
+    height: calc(100% - 102px);
+    position: relative;
+}
+#tjBackdoor .img{    
+    width: 226px;
+    height: 193px;
+    background: url(../images/province/backdoor.png) no-repeat; 
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.chartBottom .panel .value{
+    width: 226px;
+    height: 226px;
+    font-size: 72px;
+    font-family: LESLIEB;
+    color: #a334ff;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 地图 */
+.chartPanel{
+    width: 100%;
+    height: calc(100% - 322px);
+}
