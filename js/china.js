@@ -1,11 +1,4 @@
-// excel表
-let excela1 = [], excelb1 = [], excela2 = [], excelb2 = [],
- excela3 = [], excelb3 = [],excela4 = [], excelb4 = [], excela5 = [], 
- excelb5 = [], excela6 = [], excelb6 = [],excel7=[],
- excela7 = [], excelb7 = [],
- excela8 = [], excelb8 = [];
 var typeChart = null, attackChart = null, right3Chart1 = null, right3Chart2 = null, right3Chart3 = null, rEcharts = null;
-
 var jsonData = null;
 
 $(function () {

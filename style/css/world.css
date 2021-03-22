@@ -372,6 +372,7 @@ td {
 	flex-direction: column;
     justify-content: space-between;
 	background: rgba(14, 45, 103, 0.46);
+    cursor: pointer;
 }
 
 .rightBox .rBTitle{

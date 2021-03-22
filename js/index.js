@@ -73,61 +73,8 @@
       var initData = {};
       var routes = [];
       var chart = echarts.init(document.getElementById('cnterEchars'));
-
-  loadData();
-
-  function loadData() {
-    getJsonData();
-          let dataString = $.ajax({
-            url: "/api/load-data",
-            type: "get",
-            dataType: "json",
-            async: false
-          }).responseText;
-
-          data = JSON.parse(dataString);
-
-          // 如果 routes 没有数据，则不做清空操作
-          if (data.routes.length == 0) {
-            loadData();
-            return;
-          }
-          initData = {}; // 执行清空操作
-          initData = data;
-          // 右列滚动列表
-          var $this = $("#attackList"), scrollTimer;
-          $this.hover(function () {
-              clearInterval(scrollTimer);
-          }, function () {
-              scrollTimer = setInterval(function () {
-                  scrolling($this);
-              }, 800);
-          }).trigger("mouseout");
-          let airports = data.airports;
-          let airlines = data.airlines;
-
-          scrollMax = data.routes.length;
-          routes = data.routes.map(function (item) {
-            return {
-              coordinate: {
-                coords: [
-                  [
-                    airports[item[1]][3], // 获取攻击源经度
-                    airports[item[1]][4], // 获取攻击源纬度
-                  ],
-                  [
-                    airports[item[2]][3], // 获取攻击目标经度
-                    airports[item[2]][4], // 获取攻击目标纬度
-                  ]
-                ]
-              },
-              typeColor: airlines[item[0]][1], // 获取颜色
-            }
-          });
-          loadMap();
-  }
-
-
+      
+  getJsonData();
   function getJsonData() {
     $.ajax({
       url: "../data/jsonData.json",
@@ -179,9 +126,57 @@
     element.innerHTML = attactedHTML;
   }
 
-      drwareas();
+  loadData();
+  function loadData() {
+    $.ajax({
+      url: "/api/load-data",
+      type: "get",
+      dataType: "json",
+      success: function (data) {
+          // 如果 routes 没有数据，则不做清空操作
+          if (data.routes.length == 0) {
+            loadData();
+            return;
+          }
+          initData = {}; // 执行清空操作
+          initData = data;
+          // 右列滚动列表
+          var $this = $("#attackList"), scrollTimer;
+          $this.hover(function () {
+              clearInterval(scrollTimer);
+          }, function () {
+              scrollTimer = setInterval(function () {
+                  scrolling($this);
+              }, 800);
+          }).trigger("mouseout");
+          let airports = data.airports;
+          let airlines = data.airlines;
 
-      function addScrollHTML(data) {
+          scrollMax = data.routes.length;
+          routes = data.routes.map(function (item) {
+            return {
+              coordinate: {
+                coords: [
+                  [
+                    airports[item[1]][3], // 获取攻击源经度
+                    airports[item[1]][4], // 获取攻击源纬度
+                  ],
+                  [
+                    airports[item[2]][3], // 获取攻击目标经度
+                    airports[item[2]][4], // 获取攻击目标纬度
+                  ]
+                ]
+              },
+              typeColor: airlines[item[0]][1], // 获取颜色
+            }
+          });
+          loadMap();  
+      }
+    });
+  }
+  drwareas();
+
+  function addScrollHTML(data) {
         var htmlStr = " ";
         data.routes.forEach(function (r, index) {
           let typeIconMap = {
@@ -209,7 +204,7 @@
                   '</li>'
             });
             document.getElementById('attackList').innerHTML = '<ul class="newlist" id="my_ul">'+htmlStr+'</ul>';
-      }
+  }
       
       function drwareas() {
           // 滚动列表

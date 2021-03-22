@@ -69,7 +69,6 @@
                 </div>
             </div>
         </div>
-  
 		<div class="center">
             <div id="cnterEchars11"  class="Centertopshow"  style="width: 100%;height: 662px;"></div>
 			<div class="centerBottom">
@@ -147,7 +146,7 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
 </body>
 <script>
     function jumpBack() {
@@ -216,29 +215,29 @@
     }
     function getJsonData() {
         $.ajax({
-        url: "../data/jsonData.json",
-        type: "get",
-        dataType: "json",
-        success: function (data) {
-            const imgUrl = {
-            '中国': 'China',
-            '德国': 'Germany',
-            '俄罗斯': 'Russia',
-            '加拿大': 'Canada',
-            '日本': 'Japan',
-            '澳大利亚': 'Australia',
-            '伊朗': 'Iran',
-            '以色列': 'Israel',
-            '英国': 'England',
-            '乌克兰': 'Ukraine',
-            '美国': 'America',
-            }
-            const secLeft = document.getElementById('secLeft');
-            const secLeftP = document.getElementById('secLeftP');
+            url: "../data/jsonData.json",
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                const imgUrl = {
+                    '中国': 'China',
+                    '德国': 'Germany',
+                    '俄罗斯': 'Russia',
+                    '加拿大': 'Canada',
+                    '日本': 'Japan',
+                    '澳大利亚': 'Australia',
+                    '伊朗': 'Iran',
+                    '以色列': 'Israel',
+                    '英国': 'England',
+                    '乌克兰': 'Ukraine',
+                    '美国': 'America',
+                };
+                const secLeft = document.getElementById('secLeft');
+                const secLeftP = document.getElementById('secLeftP');
 
-            loadSecLeft(data.secLeft, secLeft, imgUrl);
-            loadSecLeft(data.secLeft, secLeftP, imgUrl);               
-        }
+                loadSecLeft(data.secLeft, secLeft, imgUrl);
+                loadSecLeft(data.secLeft, secLeftP, imgUrl);               
+            }
         });     
     }
     function loadSecLeft(data, element, imgUrl) {
@@ -274,29 +273,29 @@
         let qmgjChart = echarts.init(document.getElementById('qmgj'));
         const lastYear = new Date().getFullYear() - 1;
         let option = {
-                color: ['#4691fb'],
-                grid: {
-                    top: '17%',
-                    left: '5%',
-                    right: '5%',
-                    bottom: '7%',
-                    containLabel: true,
+            color: ['#4691fb'],
+            grid: {
+                top: '17%',
+                left: '5%',
+                right: '5%',
+                bottom: '7%',
+                containLabel: true,
+            },
+            xAxis: [{
+                type: 'category',
+                data: [lastYear-1, lastYear],
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: "#ffffff22",
+                        width: 2,
+                        type: "solid"
+                    }
                 },
-                xAxis: [{
-                    type: 'category',
-                    data: [lastYear-1, lastYear],
-                    axisLine: {
-                        show: true,
-                        lineStyle: {
-                            color: "#ffffff22",
-                            width: 2,
-                            type: "solid"
-                        }
-                    },
-                    axisTick: {
-                        show: false
-                    },
-                    axisLabel: {
+                axisTick: {
+                    show: false
+                },
+                axisLabel: {
                         show: true,
                         interval:0,
                         fontSize: '13',
@@ -304,64 +303,64 @@
                             color: "#fff",
                         }
                     },
-                }],
-                yAxis: [{
-                    type: 'value',
-                    name: '单位:万台',
-                    nameTextStyle: {
-                        color: '#ffffff'
-                    },
-                    axisLabel: {
-                        formatter: '{value} ',
-                        fontSize: '13',
-                        textStyle: {
-                            color: "#fff",
-                        }
-                    },
-                    axisLine: {
-                        show: true,
-                        lineStyle: {
-                            color: "#ffffff22",
-                            width: 2,
-                            type: "solid"
-                        },
-                    },
-                    axisTick: {
-                        show: false
-                    },
-                    splitLine: {
-                        lineStyle: {
-                            type: 'solid',
-                            color: '#032947'
-                        }
-                    },
-                }],
-                series: [{
-                    type: 'bar',
-                    data: [ 3.4, 4.9],
-                    barWidth: 16,
-                    barGap: 0, 
-                    "label": {
-                        "normal": {
-                            "show": true,
-                            "position": "top",
-                            "formatter": "{c}",
-                            color: '#6af3ff'
-                        }
-                    },
-                    itemStyle: {
-                        normal: {
-                            color: new echarts.graphic.LinearGradient(0,1,0,0,[{
-                                offset: 0,
-                                color: '#009dff00'
-                            },{
-                                offset: 1,
-                                color: '#009dff'
-                            }])
-                        }
+                }],   
+            yAxis: [{
+                type: 'value',
+                name: '单位:万台',
+                nameTextStyle: {
+                    color: '#ffffff'
+                },
+                axisLabel: {
+                    formatter: '{value} ',
+                    fontSize: '13',
+                    textStyle: {
+                        color: "#fff",
                     }
-                }]
-            };
+                },
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: "#ffffff22",
+                        width: 2,
+                        type: "solid"
+                    },
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#032947'
+                    }
+                },
+            }],        
+            series: [{
+                type: 'bar',
+                data: [ 3.4, 4.9],
+                barWidth: 16,
+                barGap: 0, 
+                label: {
+                    normal: {
+                        show: true,
+                        position: "top",
+                        formatter: "{c}",
+                        color: '#6af3ff'
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(0,1,0,0,[{
+                            offset: 0,
+                            color: '#009dff00'
+                        },{
+                            offset: 1,
+                            color: '#009dff'
+                        }])
+                    }
+                }
+            }]
+        };
         qmgjChart.setOption(option);
     }
     function drawQqmgjqmgjNew() {
@@ -455,7 +454,7 @@
                         }
                     }
                 }]
-            };
+        };
         qmgjChart.setOption(option);
     }
    
@@ -814,92 +813,91 @@
     var attackInfo = [];
     function getChartData() {
         $.ajax({
-                        url: "/api/load-china-data",
-                        type: "get",
-                        dataType: "json",
-                        success: function (data) {
-                            // if() {
-                                // debugger
-                                // window.open('html/noAuth.html');
-                                // return false;                            
-                            // }
-                            attackInfo = data.attackInfo;
-                            var attackHtml = '';
-                            var iconTypeMap = {
-                                '漏洞攻击': 'attackld',
-                                '木马攻击': 'attackmm',
-                                '恶意程序': 'attackey',
-                                '网站后门': 'attackhm'
-                            };
-                            var conTypeMap =  {
-                                '希腊': 'GR',
-                                '匈牙利': 'HU',
-                                '波兰': 'PT',
-                                '奥地利': 'AT',
-                                '加拿大': 'CA',
-                                '德国': 'DE',
-                                '丹麦': 'DK',
-                                '以色列': 'IL',
-                                '俄罗斯': 'RU',
-                                '乌克兰': 'UA',
-                                '意大利': 'IT',
-                                '墨西哥': 'MX',
-                                '印度': 'IN',
-                                '挪威': 'NO',
-                                '西班牙': 'ES',
-                                '捷克': 'CZ',
-                                '法国': 'FR',
-                                '瑞典': 'SE',
-                                '芬兰': 'FI',
-                                '瑞士': 'CH',
-                                '比利时': 'BE',
-                                '英国': 'GB',
-                                '葡萄牙': 'PT',
-                                '美国': 'US',
-                                '古巴': 'CU',
-                                '巴西': 'BR',
-                                '埃及': 'EG',
-                                '澳大利亚': 'AU',
-                                '荷兰': 'NL',
-                                '卢森堡': 'LU',
-                                '爱尔兰': 'IE',
-                                '冰岛': 'IS',
-                                '日本': 'JP'
-                            };
-
-                            for(var p=0;p<attackInfo.length;p++) {
-                                let {attackType, source, target, attackTime} = attackInfo[p];
-                                attackHtml += "<li>" +
-                                    "<span><img class = 'attackIcon' src='../style/images/attack/" + iconTypeMap[attackType] + ".png'>" + attackType + "</span>" +
-                                    "<span class = 'secCol'><img class = 'countryIcon' src='../style/images/country/" + conTypeMap[source] + ".svg'>" + source + "</span>" +
-                                    "<span><img src='../style/images/country/China.png' style='width: 30px;height: 21px;margin-right: 12px;'>中国</span>" +
-                                    "<span>" + attackTime + "</span>"
-                                "</li>";
-                            }
-                            document.getElementById('prizeUl').innerHTML = attackHtml;
-                        }
-                    })
+            url: "/api/load-china-data",
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                // if() {
+                // debugger
+                // window.open('html/noAuth.html');
+                // return false;                            
+                // }
+                attackInfo = data.attackInfo;
+                var attackHtml = '';
+                var iconTypeMap = {
+                    '漏洞攻击': 'attackld',
+                    '木马攻击': 'attackmm',
+                    '恶意程序': 'attackey',
+                    '网站后门': 'attackhm'
+                };
+                var conTypeMap =  {
+                    '希腊': 'GR',
+                    '匈牙利': 'HU',
+                    '波兰': 'PT',
+                    '奥地利': 'AT',
+                    '加拿大': 'CA',
+                    '德国': 'DE',
+                    '丹麦': 'DK',
+                    '以色列': 'IL',
+                    '俄罗斯': 'RU',
+                    '乌克兰': 'UA',
+                    '意大利': 'IT',
+                    '墨西哥': 'MX',
+                    '印度': 'IN',
+                    '挪威': 'NO',
+                    '西班牙': 'ES',
+                    '捷克': 'CZ',
+                    '法国': 'FR',
+                    '瑞典': 'SE',
+                    '芬兰': 'FI',
+                    '瑞士': 'CH',
+                    '比利时': 'BE',
+                    '英国': 'GB',
+                    '葡萄牙': 'PT',
+                    '美国': 'US',
+                    '古巴': 'CU',
+                    '巴西': 'BR',
+                    '埃及': 'EG',
+                    '澳大利亚': 'AU',
+                    '荷兰': 'NL',
+                    '卢森堡': 'LU',
+                    '爱尔兰': 'IE',
+                    '冰岛': 'IS',
+                    '日本': 'JP'
+                };
+                for(var p=0;p<attackInfo.length;p++) {
+                    let {attackType, source, target, attackTime} = attackInfo[p];
+                    attackHtml += "<li>" +
+                        "<span><img class = 'attackIcon' src='../style/images/attack/" + iconTypeMap[attackType] + ".png'>" + attackType + "</span>" +
+                        "<span class = 'secCol'><img class = 'countryIcon' src='../style/images/country/" + conTypeMap[source] + ".svg'>" + source + "</span>" +
+                        "<span><img src='../style/images/country/China.png' style='width: 30px;height: 21px;margin-right: 12px;'>中国</span>" +
+                        "<span>" + attackTime + "</span>"
+                        "</li>";
+                }
+                document.getElementById('prizeUl').innerHTML = attackHtml;
+            }
+        })
     }
         
     drwareas(); 
     function drwareas() {
-            $('#cnterEcharsC1').replaceWith('<div id="cnterEcharsC1"  class=" topshow"> </div>')
-            $('#cnterEcharsC1').hide();
-            $('#cnterEchars11').show();       
-            myChart2 = echarts.init(document.getElementById('cnterEchars11'));
-            $.ajax({
-                url: "/api/load-china-data",
-                type:"get",
-                dataType:"json",
-                success:function(data){
-                    worldMapRefresh(data.attackInfo);
-                    myChart2.on('click', function (params) {
-                        if(params.name=="China"){
+        $('#cnterEcharsC1').replaceWith('<div id="cnterEcharsC1"  class=" topshow"> </div>')
+        $('#cnterEcharsC1').hide();
+        $('#cnterEchars11').show();       
+        myChart2 = echarts.init(document.getElementById('cnterEchars11'));
+        $.ajax({
+            url: "/api/load-china-data",
+            type:"get",
+            dataType:"json",
+            success:function(data){
+                worldMapRefresh(data.attackInfo);
+                myChart2.on('click', function (params) {
+                    if(params.name=="China"){
                         window.location.href='china.html'
-                        }
-                    })
-                }
-            })
+                    }
+                })
+            }
+        })
     }
 
     // 地图刷新
@@ -920,33 +918,32 @@
         }
         var waitSec = 10, lineDataAdd = [];
         let bDoors = [], mProms = [], vAttacks = [], hAttacks = [], eScatter = [], oData = [];
-            
-                const {type, data} = lineSData[0];
-                if(type === '网站后门') {
-                    bDoors.push(data);
-                }else if(type === '恶意程序') {
-                    mProms.push(data);
-                }else if(type === '漏洞攻击') {
-                    vAttacks.push(data);
-                }else if(type === '木马攻击') {
-                    hAttacks.push(data);
-                }
-                eScatter.push({
-                    name: data['name'],
-                    value: data['coords'][1],
-                    itemStyle:{
-                        color: data['typeColor']
-                    }
-                });
-                oData.push({
-                    name: data['source'],
-                    value: data['coords'][0],
-                    itemStyle:{
-                        color: data['typeColor']
-                    }
-                });    
-            index ++;
-            getcenechars(bDoors, mProms, vAttacks, hAttacks, eScatter, oData);
+        const {type, data} = lineSData[0];
+        if(type === '网站后门') {
+            bDoors.push(data);
+        }else if(type === '恶意程序') {
+            mProms.push(data);
+        }else if(type === '漏洞攻击') {
+            vAttacks.push(data);
+        }else if(type === '木马攻击') {
+            hAttacks.push(data);
+        }
+        eScatter.push({
+            name: data['name'],
+            value: data['coords'][1],
+            itemStyle:{
+                color: data['typeColor']
+            }
+        });
+        oData.push({
+            name: data['source'],
+            value: data['coords'][0],
+            itemStyle:{
+                color: data['typeColor']
+            }
+        });    
+        index ++;
+        getcenechars(bDoors, mProms, vAttacks, hAttacks, eScatter, oData);
 
         setInterval(function() {
             if (index === lineSData.length){
@@ -1020,24 +1017,24 @@
                             borderColor: '#0066ff',
                             borderWidth: 1,
                             areaColor: {
-                                            type: 'linear',
-                                            x: 0,
-                                            y: 0,
-                                            x2: 0,
-                                            y2: 1,
-                                            colorStops: [{
-                                                offset: 0,
-                                                color: '#87CEFA' // 0% 处的颜色
-                                            }, {
-                                                offset: 1,
-                                                color: '#07ffff' // 100% 处的颜色
-                                            }],
-                                            globalCoord: false // 缺省为 false
+                                type: 'linear',
+                                x: 0,
+                                y: 0,
+                                x2: 0,
+                                y2: 1,
+                                colorStops: [{
+                                    offset: 0,
+                                    color: '#87CEFA' // 0% 处的颜色
+                                }, {
+                                    offset: 1,
+                                    color: '#07ffff' // 100% 处的颜色
+                                }],
+                                globalCoord: false // 缺省为 false
                             },
-                                        shadowColor: 'rgba(128, 217, 248, 1)',
-                                        shadowOffsetX: 0,
-                                        shadowOffsetY: 0,
-                                        shadowBlur: 10
+                            shadowColor: 'rgba(128, 217, 248, 1)',
+                            shadowOffsetX: 0,
+                            shadowOffsetY: 0,
+                            shadowBlur: 10
                         },
                         emphasis: {
                             areaColor: '#389BB7',
@@ -1208,23 +1205,23 @@
                 },
                 data: horseAttacks
             },{
-                                type: "effectScatter",
-                                coordinateSystem: "geo",
-                                zlevel: 2,
-                                label: {
-                                    normal: {
-                                        show: true,
-                                        position: "bottom", //显示位置
-                                        fontWeight: "lighter",
-                                        fontSize: 13,
-                                        formatter: "{b}" //圆环显示文字
-                                    },
-                                    emphasis: {
-                                        show: true
-                                    },
-                                },
-                                symbolSize: 0.1, //圆环大小
-                                data: effectScatter
+                type: "effectScatter",
+                coordinateSystem: "geo",
+                zlevel: 2,
+                label: {
+                    normal: {
+                        show: true,
+                        position: "bottom", //显示位置
+                        fontWeight: "lighter",
+                        fontSize: 13,
+                        formatter: "{b}" //圆环显示文字
+                    },
+                        emphasis: {
+                            show: true
+                        },
+                    },
+                    symbolSize: 0.1, //圆环大小
+                    data: effectScatter
             },{
                 type: "effectScatter",
                 coordinateSystem: "geo",
@@ -1236,14 +1233,14 @@
                     normal: {
                         show: true,
                         position: "bottom", //显示位置
-                                        fontWeight: "lighter",
-                                        fontSize: 13,
-                                        formatter: "{b}" //圆环显示文字
-                                    },
-                                    emphasis: {
-                                        show: true
-                                    },
-                                },
+                        fontWeight: "lighter",
+                        fontSize: 13,
+                        formatter: "{b}" //圆环显示文字
+                    },
+                    emphasis: {
+                        show: true
+                    },
+                },
                 data: originData
             }, {// 天津
                 type: "scatter",
@@ -1291,7 +1288,6 @@
         };
         myChart2.setOption(option);
     }
-
 
 // 去年控制我国境内主机数量前10 
   $('#attackBox').click(function(){
